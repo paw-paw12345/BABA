@@ -11,7 +11,6 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             padding: 20px;
-            
         }
         h1 {
             text-align: center;
@@ -31,7 +30,6 @@
             background-color: #ffffff;
             padding: 30px;
             border-radius: 12px;
-            
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
         }
         .form-group {
@@ -51,6 +49,7 @@
             color: #333;
         }
         input[type="text"],
+        input[type="email"],
         input[type="number"],
         select,
         textarea {
@@ -78,16 +77,21 @@
         #submitted-message {
             display: none;
             text-align: center;
-            margin-top: 20px;
+            padding: 20px 0;
             color: #333;
+        }
+        #submitted-message h3 {
+            color: #28a745;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
+
     <h1>Agape Admission Portal</h1>
     <p>Request for the 2026 Academic Year</p>
-    
-    <div class="form-container"> 
+
+    <div class="form-container">
         <form id="RegistrationForm">
             <div class="form-group">
                 <label for="firstName">First Name</label>
@@ -99,13 +103,13 @@
             </div>
             <div class="form-row">
                 <div class="form-group">
-                    <label for="email">Email</label>   
-                    <input type="text" id="email" name="email" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
                     <label for="phone">Phone Number</label>
                     <input type="text" id="phone" name="phone" required>
-                </div>            
+                </div>
             </div>
             <div class="form-group">
                 <label for="age">Age</label>
@@ -142,9 +146,30 @@
         </form>
 
         <div id="submitted-message">
-            <h3>Form Successfully Submitted</h3>
-            <p>Thank you for submitting your form.</p>
+            <h3>Admission Successful!</h3>
+            <p>Thank you for submitting your application for the 2026 Academic Year.</p>
         </div>
     </div>
+
+    <script>
+        
+        const registrationForm = document.getElementById('RegistrationForm');
+        const successMessage = document.getElementById('submitted-message');
+
+        
+        registrationForm.addEventListener('submit', function(event) {
+            
+           
+
+            
+            registrationForm.style.display = 'none';
+
+            
+            successMessage.style.display = 'block';
+
+            alert("Admission successful!");
+        });
+    </script>
+
 </body>
 </html>
